@@ -41,3 +41,8 @@ isl_holidays <- isl_holidays %>%
     select(date, V2) %>%
     set_names("date", "holiday")
 
+
+# Save data as xlsx
+
+isl_holidays %>%
+    openxlsx::write.xlsx("isl_holidays.xlsx")
