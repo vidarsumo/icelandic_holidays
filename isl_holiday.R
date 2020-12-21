@@ -41,6 +41,15 @@ isl_holidays <- isl_holidays %>%
     select(date, V2) %>%
     set_names("date", "holiday")
 
+# Bæti við þorláksmessu
+
+thorlaksmessa <- tibble(date = as.Date(paste(years, "12-23", sep = "-")),
+                        holiday = "Þorláksmessa")
+
+
+isl_holidays <- isl_holidays %>%
+    bind_rows(thorlaksmessa) %>%
+    arrange(date)
 
 # Save data as xlsx
 
